@@ -1,6 +1,3 @@
-[submodule "protected/vendor/yii-git"]
-	path = protected/vendor/yii-git
-	url = git://repo.or.cz/yii-framework.git
 [submodule "protected/vendor/yii"]
 	path = protected/vendor/yii
 	url = git://repo.or.cz/yii-framework.git
