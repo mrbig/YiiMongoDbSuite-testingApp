@@ -4,3 +4,6 @@
 [submodule "protected/vendor/yii"]
 	path = protected/vendor/yii
 	url = git://repo.or.cz/yii-framework.git
+[submodule "protected/extensions/YiiMongoDbSuite"]
+	path = protected/extensions/YiiMongoDbSuite
+	url = git://github.com/canni/YiiMongoDbSuite.git
