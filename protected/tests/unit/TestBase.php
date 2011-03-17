@@ -1,6 +1,6 @@
 <?php
 
-class BaseDBTest extends CTestCase
+class TestBase extends CTestCase
 {
 	public function setUp()
 	{

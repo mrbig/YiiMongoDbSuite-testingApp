@@ -1,6 +1,6 @@
 <?php
 
-class BasicOperationsTest extends BaseDBTest
+class BasicOperationsTest extends TestBase
 {
 	public function testToArray()
 	{
