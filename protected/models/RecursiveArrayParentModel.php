@@ -4,6 +4,7 @@ require_once dirname(__FILE__).'/BasicTestModel.php';
 
 class RecursiveArrayParentModel extends BasicTestModel
 {
+	public $idfield;
 	public $children = array();
 
 	public static function model($className=__CLASS__)
