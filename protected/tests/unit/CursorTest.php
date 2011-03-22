@@ -80,6 +80,10 @@ class CursorTest extends TestBase
 		}
 		$this->assertEquals(0, count($fields));
 		
+		// Negative check: no value specified
+		$arr = BasicOperationsModel::model()->findAll(array());
+		$this->assertTrue($arr instanceof EMongoCursor);
+		
 		// Get as cursor
 		Yii::app()->mongodb->useCursor = false;
 		$arr = BasicOperationsModel::model()->findAll(array('useCursor' => true));
@@ -92,6 +96,10 @@ class CursorTest extends TestBase
 			unset($fields[$doc->field2]);
 		}
 		$this->assertEquals(0, count($fields));
+
+		// Negative check: no value specified
+		$arr = BasicOperationsModel::model()->findAll(array());
+		$this->assertTrue(is_array($arr));
 	}
 
 }
