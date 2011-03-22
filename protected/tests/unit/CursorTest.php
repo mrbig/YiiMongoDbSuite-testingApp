@@ -62,5 +62,36 @@ class CursorTest extends TestBase
 		}
 		$this->assertEquals(0, count($fields));
 	}
+	
+	/**
+	 * Test to find items with cursor option supplied at query time
+	 */
+	public function testDirectCursor() {
+		// get as array
+		Yii::app()->mongodb->useCursor = true;
+		$arr = BasicOperationsModel::model()->findAll(array('useCursor' => false));
+		
+		$this->assertTrue(is_array($arr));
+		$this->assertEquals(count($this->fields), count($arr));
+		
+		$fields = $this->fields;
+		foreach ($arr as $doc) {
+			unset($fields[$doc->field2]);
+		}
+		$this->assertEquals(0, count($fields));
+		
+		// Get as cursor
+		Yii::app()->mongodb->useCursor = false;
+		$arr = BasicOperationsModel::model()->findAll(array('useCursor' => true));
+		
+		$this->assertTrue($arr instanceof EMongoCursor);
+		$this->assertEquals(count($this->fields), count($arr));
+		
+		$fields = $this->fields;
+		foreach ($arr as $doc) {
+			unset($fields[$doc->field2]);
+		}
+		$this->assertEquals(0, count($fields));
+	}
 
 }
